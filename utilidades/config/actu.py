@@ -8,9 +8,9 @@ from colorama import Fore
 from zipfile import ZipFile
 from bs4 import BeautifulSoup
 
-from comun1 import *
-from librerias import *
-from actu import actu
+from utilidades.config.comun1 import *
+from utilidades.config.librerias import *
+# from actu import actu
 
 w = Fore.WHITE
 b = Fore.BLACK
@@ -24,7 +24,7 @@ lb = Fore.LIGHTBLUE_EX
 def busca_actu():
     clear()
     setTitle('Nueva actualización encontrada')
-    r = requests.get("") # github
+    r = requests.get("https://github.com/NovaSunDev/NovaSunTool/releases/latest") # github
     soup = str(BeautifulSoup(r.text, 'html.parser'))
     s1 = re.search('<title>', soup)
     s2 = re.search('·', soup)
@@ -32,17 +32,22 @@ def busca_actu():
 
     if ESTA_VERSION not in result_string:
         print('''
-         █████╗  ██████╗████████╗██╗   ██╗ █████╗ ██╗     ██╗███████╗ █████╗  ██████╗██╗ ██████╗ ███╗   ██╗
-██╔══██╗██╔════╝╚══██╔══╝██║   ██║██╔══██╗██║     ██║╚══███╔╝██╔══██╗██╔════╝██║██╔═══██╗████╗  ██║
-███████║██║        ██║   ██║   ██║███████║██║     ██║  ███╔╝ ███████║██║     ██║██║   ██║██╔██╗ ██║
-██╔══██║██║        ██║   ██║   ██║██╔══██║██║     ██║ ███╔╝  ██╔══██║██║     ██║██║   ██║██║╚██╗██║
-██║  ██║╚██████╗   ██║   ╚██████╔╝██║  ██║███████╗██║███████╗██║  ██║╚██████╗██║╚██████╔╝██║ ╚████║
-╚═╝  ╚═╝ ╚═════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+
+ ▄▄▄       ▄████▄  ▄▄▄█████▓ █    ██  ▄▄▄       ██▓     ██▓▒███████▒ ▄▄▄       ▄████▄   ██▓ ▒█████   ███▄    █  ▐██▌ 
+▒████▄    ▒██▀ ▀█  ▓  ██▒ ▓▒ ██  ▓██▒▒████▄    ▓██▒    ▓██▒▒ ▒ ▒ ▄▀░▒████▄    ▒██▀ ▀█  ▓██▒▒██▒  ██▒ ██ ▀█   █  ▐██▌ 
+▒██  ▀█▄  ▒▓█    ▄ ▒ ▓██░ ▒░▓██  ▒██░▒██  ▀█▄  ▒██░    ▒██▒░ ▒ ▄▀▒░ ▒██  ▀█▄  ▒▓█    ▄ ▒██▒▒██░  ██▒▓██  ▀█ ██▒ ▐██▌ 
+░██▄▄▄▄██ ▒▓▓▄ ▄██▒░ ▓██▓ ░ ▓▓█  ░██░░██▄▄▄▄██ ▒██░    ░██░  ▄▀▒   ░░██▄▄▄▄██ ▒▓▓▄ ▄██▒░██░▒██   ██░▓██▒  ▐▌██▒ ▓██▒ 
+ ▓█   ▓██▒▒ ▓███▀ ░  ▒██▒ ░ ▒▒█████▓  ▓█   ▓██▒░██████▒░██░▒███████▒ ▓█   ▓██▒▒ ▓███▀ ░░██░░ ████▓▒░▒██░   ▓██░ ▒▄▄  
+ ▒▒   ▓▒█░░ ░▒ ▒  ░  ▒ ░░   ░▒▓▒ ▒ ▒  ▒▒   ▓▒█░░ ▒░▓  ░░▓  ░▒▒ ▓░▒░▒ ▒▒   ▓▒█░░ ░▒ ▒  ░░▓  ░ ▒░▒░▒░ ░ ▒░   ▒ ▒  ░▀▀▒ 
+  ▒   ▒▒ ░  ░  ▒       ░    ░░▒░ ░ ░   ▒   ▒▒ ░░ ░ ▒  ░ ▒ ░░░▒ ▒ ░ ▒  ▒   ▒▒ ░  ░  ▒    ▒ ░  ░ ▒ ▒░ ░ ░░   ░ ▒░ ░  ░ 
+  ░   ▒   ░          ░       ░░░ ░ ░   ░   ▒     ░ ░    ▒ ░░ ░ ░ ░ ░  ░   ▒   ░         ▒ ░░ ░ ░ ▒     ░   ░ ░     ░ 
+      ░  ░░ ░                  ░           ░  ░    ░  ░ ░    ░ ░          ░  ░░ ░       ░      ░ ░           ░  ░    
+          ░                                                ░                  ░                                      
                                                                                                    
         
         
         ''')
-        soup = BeautifulSoup(requests.get("").text, 'html.parser') # github
+        soup = BeautifulSoup(requests.get("https://github.com/NovaSunDev/NovaSunTool/releases").text, 'html.parser') # github
         for link in soup.find_all('a'):
             if "releases/download" in str(link):
                 update_url = f"https://github.com/{link.get('href')}"
@@ -68,13 +73,13 @@ def busca_actu():
                 os.startfile('novasun.exe')
                 os._exit(0)
             else:
-                new_version_source = requests.get("")
-                with open('novasuntool.zip', 'wb') as zipfile:
+                new_version_source = requests.get("https://github.com/NovaSunDev/NovaSunTool/archive/refs/tags/NovaSunTool-main.zip")
+                with open('NovaSunTool-main.zip', 'wb') as zipfile:
                     zipfile.write(new_version_source)
-                with ZipFile('novasuntool.zip', 'r') as filezip:
+                with ZipFile('NovaSunTool-main.zip', 'r') as filezip:
                     filezip.extractall()
-                os.remove('novasuntool.zip')
-                cwd = os.getcwd()+'\\novasuntool\\'
+                os.remove('NovaSunTool-main.zip')
+                cwd = os.getcwd()+'\\NovaSunTool-main\\'
                 shutil.copytree(cwd, os.getcwd(), dirs_exist_ok=True)
                 shutil.rmtree(cwd)
                 input(f' Actualización completada ')
