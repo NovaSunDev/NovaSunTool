@@ -34,17 +34,6 @@ print(f"""
 {Fore.LIGHTBLUE_EX}.%%..%%...%%%%.....%%....%%..%%...%%%%....%%%%...%%..%%.
 {Fore.RED}........................................................
 """)
-# checker = input(f"{Fore.YELLOW}[{Fore.RED > Fore.WHITE}] Enable Checker {Fore.WHITE}(yes or no){Fore.LIGHTBLACK_EX}: {Fore.WHITE}")
-# print(f'{Fore.CYAN}[!] {Fore.WHITE} Soon proxies will be added!')
-
-# os.system('cls')
-
-# Robloxgen = int(input(f'{Fore.YELLOW} Cuantos códigos genero?: {Fore.WHITE}'))
-
-# with open('codes.txt', 'a') as file:
-#     for i in range(Robloxgen):
-#         code = "".join(random.choices(string.ascii_uppercase, string.digits, k=2)) + "-" + "".join(random.choices(string.ascii_uppercase, string.digits, k=4)) + "".join(random.choices(string.ascii_uppercase, string.digits, k=4)) + "-" + "".join(random.choices(string.ascii_uppercase, string.digits, k=4)) + "".join(random.choices(string.ascii_uppercase, string.digits, k=4))
-#         file.write('')
 setTitle(f"Proxies    |    ")
 choice = input(f"\n[\x1b[95m>\x1b[95m\x1B[37m] Quieres usar proxies? [Y/N]: {Fore.RESET}")
 if choice.lower() == 'y' or choice.lower() == 'yes':
