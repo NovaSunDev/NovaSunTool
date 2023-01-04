@@ -356,14 +356,14 @@ if __name__ == '__main__':
     os.system("""Si no existe './chromedriver.exe' echo [+] Descargando drivers""")
     os.system("""if not exist './chromedriver.exe' curl -#fkLo "chromedriver.exe" "https://github.com/NovaSunDev/chromedriver.git" """)
     if os.path.basename(sys.argv[0]).endswith('exe'):
-        #busca_actu()
+        busca_actu()
         if not os.path.exists(getTempDir()+"\\nova_proxies"):
                         proxy_scrape()
         clear()
     else:
         if not os.path.exists(getTempDir()+"\\nova_proxies"):
                         proxy_scrape()
-        #busca_actu()
+        busca_actu()
         clear()
         main()
 
