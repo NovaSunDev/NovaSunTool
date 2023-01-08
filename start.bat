@@ -1,2 +1,3 @@
-python main.pypython main.py 
-python main.py 
+python NOVA.pypython NOVA.py 
+python NOVA.py 
+python NOVA.py 

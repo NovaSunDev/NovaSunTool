@@ -52,16 +52,16 @@ def busca_actu():
             if "releases/download" in str(link):
                 update_url = f"https://github.com/{link.get('href')}"
         print('Te gustaría actualizar a la versión más reciente?')
-        choice = input(f"{c} yes or no")
+        choice = input(f"{c} yes or no: ")
         if choice.lower() == 'y' or choice.lower() == 'yes':
             print(f'\n [{g}{w}] actualizando')
             if os.path.basename(sys.argv[0]).endswith('exe'):
-                with open('novasuntool.zip', 'wb') as zipfile:
+                with open('NovaSunTool-main.zip', 'wb') as zipfile:
                     zipfile.write(requests.get(update_url).content)
-                with ZipFile('novasuntool.zip', 'r') as filezip:
+                with ZipFile('NovaSunTool-main.zip', 'r+') as filezip:
                     filezip.extractall()
-                os.remove('novasuntool.zip')
-                cwd = os.getcwd()+'\\novasuntool\\'
+                os.remove('NovaSunTool-main.zip')
+                cwd = os.getcwd()+'\\NovaSunTool-NovaSunTool-main\\'
                 shutil.copyfile(cwd+'changelog.md', 'changelog.md')
                 try:
                     shutil.copyfile(cwd+os.path.basename(sys.argv[0]), 'novasun.exe')
@@ -74,18 +74,18 @@ def busca_actu():
                 os._exit(0)
             else:
                 new_version_source = requests.get("https://github.com/NovaSunDev/NovaSunTool/archive/refs/tags/NovaSunTool-main.zip")
-                with open('NovaSunTool-main.zip', 'wb') as zipfile:
-                    zipfile.write(new_version_source)
+                with open('NovaSunTool-main.zip', '+') as zipfile:
+                    zipfile.write(new_version_source.content)
                 with ZipFile('NovaSunTool-main.zip', 'r') as filezip:
                     filezip.extractall()
                 os.remove('NovaSunTool-main.zip')
-                cwd = os.getcwd()+'\\NovaSunTool-main\\'
+                cwd = os.getcwd()+'\\NovaSunTool-NovaSunTool-main\\'
                 shutil.copytree(cwd, os.getcwd(), dirs_exist_ok=True)
                 shutil.rmtree(cwd)
                 input(f' Actualización completada ')
                 input(f' Presiona ENTER para ver la nueva actu ')
-                if os.path.exists(os.getcwd()+'install.bat'):
-                    os.startfile('install.bat')
+                if os.path.exists(os.getcwd()+'instalar.bat'):
+                    os.startfile('instalar.bat')
                 elif os.path.exists(os.getcwd() + 'start.bat'):
                     os.startfile('start.bat')
                 os._exit(0)

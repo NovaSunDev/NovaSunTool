@@ -8,7 +8,7 @@ import shutil
 import ctypes
 import random
 import zipfile
-import requests
+# import requests
 import threading
 import subprocess
 import pylibcheck
@@ -22,7 +22,7 @@ from multiprocessing.spawn import spawn_main
 from pystyle import Add, Center, Anime, Colors, Colorate, Write, System
 import requests, os, sys, re, time, random, os.path, string, subprocess, random, threading, ctypes, shutil
 
-ESTA_VERSION = '1.1.2'
+ESTA_VERSION = '1.1.1'
 
 w = Fore.WHITE
 b = Fore.BLACK
@@ -513,6 +513,6 @@ nova = r'''
 '''
 System.Size(120, 30)
 System.Clear()
-Anime.Fade(Center.Center(nova), Colors.yellow_to_green, Colorate.Vertical, interval=0.030, enter=True)
+Anime.Fade(Center.Center(nova), Colors.yellow_to_red, Colorate.Vertical, interval=0.100, enter=True)
 
 
